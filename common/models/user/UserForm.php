@@ -48,11 +48,6 @@ class UserForm extends Model
 
             ['password', 'required', 'on' => 'create'],
             ['password', 'string', 'min' => 6],
-            ['promocode', function($attribute) {
-                if(!yii::$app->promocode->checkExists($this->$attribute)) {
-                    $this->addError($attribute, 'Promocode do not exists');
-                }
-            }],
             ['status', 'integer'],
             [['roles'], 'each',
                 'rule' => ['in', 'range' => ArrayHelper::getColumn(
@@ -88,7 +83,6 @@ class UserForm extends Model
         $this->username = $model->username;
         $this->email = $model->email;
         $this->phone = $model->phone;
-        $this->promocode = $model->promocode;
         $this->status = $model->status;
         $this->model = $model;
         $this->roles = ArrayHelper::getColumn(
@@ -121,7 +115,6 @@ class UserForm extends Model
             $isNewRecord = $model->getIsNewRecord();
             $model->username = $this->username;
             $model->phone = $this->phone;
-            $model->promocode = $this->promocode;
             $model->email = $this->email;
             $model->status = $this->status;
             if ($this->password) {

@@ -43,11 +43,5 @@ use common\models\user\UserProfile;
         </div>
     <?php ActiveForm::end(); ?>
 
-    <?php if($fieldPanel = \pistol88\field\widgets\Choice::widget(['model' => $model->getModel()])) { ?>
-        <div class="block">
-            <h2>Прочее</h2>
-            <?=$fieldPanel;?>
-        </div>
-    <?php } ?>
 
 </div>
