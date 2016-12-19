@@ -30,8 +30,8 @@ use yii\web\IdentityInterface;
  * @property \common\models\User\UserProfile $userProfile
  */
 
- // class User extends ActiveRecord implements IdentityInterface, \pistol88\worksess\interfaces\User, \halumein\cashbox\interfaces\User
-class User extends ActiveRecord implements IdentityInterface, \halumein\cashbox\interfaces\User
+
+class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_NOT_ACTIVE = 1;
     const STATUS_ACTIVE = 2;
@@ -66,10 +66,6 @@ class User extends ActiveRecord implements IdentityInterface, \halumein\cashbox\
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
-            'field' => [
-                'class' => 'pistol88\field\behaviors\AttachFields',
-            ],
             'auth_key' => [
                 'class' => AttributeBehavior::className(),
                 'attributes' => [

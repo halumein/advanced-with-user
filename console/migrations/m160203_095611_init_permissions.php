@@ -5,6 +5,8 @@ use common\rbac\Migration;
 
 class m160203_095611_init_permissions extends Migration
 {
+    public $db = 'db';
+    
     public function up()
     {
         $managerRole = $this->auth->getRole(\common\models\user\User::ROLE_MANAGER);

@@ -12,6 +12,13 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'console\controllers',
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'itemTable' => '{{%rbac_auth_item}}',
+            'itemChildTable' => '{{%rbac_auth_item_child}}',
+            'assignmentTable' => '{{%rbac_auth_assignment}}',
+            'ruleTable' => '{{%rbac_auth_rule}}'
+        ],
         'log' => [
             'targets' => [
                 [

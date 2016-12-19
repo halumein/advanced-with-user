@@ -5,6 +5,8 @@ use common\models\user\User;
 
 class m160203_095609_roles extends Migration
 {
+    public $db = 'db';
+
     public function up()
     {
         $this->auth->removeAll();
